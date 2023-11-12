@@ -11,6 +11,16 @@ import {
 
 import eliminarProductoDelete from "./admin/productos/eliminarProducto.js"
 
+import {
+    agregarImgProductoGet,
+    agregarImgProductoPost
+} from "./admin/productos/imagenesProducto.js"
+
+import {
+    actualizarProductoGet,
+    actualizarProductoPost
+} from "./admin/productos/editarProducto.js"
+
 export {
     categoriasGet,
     categoriasPost,
@@ -21,5 +31,9 @@ export {
     productosPost,
     agregarProductoGet,
     agregarProductoPost,
-    eliminarProductoDelete
+    eliminarProductoDelete,
+    agregarImgProductoGet,
+    agregarImgProductoPost,
+    actualizarProductoGet,
+    actualizarProductoPost
 }
