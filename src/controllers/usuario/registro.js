@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
 
-import mailer from "../../email/mailer.js"
+import sendEmail from "../../email/sendEmail.js"
 
 dotenv.config();
 const { JWT_SECRET, JWT_DURATION } = process.env
@@ -52,6 +52,7 @@ const registroPost = async (req, res) => {
 
         );
 
+        console.log('Token: ', token);
         const recipientEmail = email;
         const emailSubject = 'Hola, mundo!';
         const emailBody = `Bienvenido a Hello World, ${name}! Tu cuenta ha sido creada exitosamente.`;
@@ -62,6 +63,7 @@ const registroPost = async (req, res) => {
 
         res.status(201).json({ message: 'User created successfully', token });
     } catch (error) {
+        console.error('Error registering user: ', error);
         res.status(500).json({ message: 'Error registering user', error });
     }
     ;
